@@ -2,7 +2,7 @@ module.exports.methods = {
   post: {
     summary: 'Summary for this endpoint',
     requestBody: {
-      required: false,
+      required: true,
       content: {
         'application/json': {
           schema: {
@@ -12,9 +12,9 @@ module.exports.methods = {
                 type: 'string',
                 example: 'johndoe@menlolab.com',
               },
-              key: {
+              comment: {
                 type: 'string',
-                example: 'yourSSHkey',
+                example: 'other types include number, integer, boolean, array, object',
               },
             },
           },
@@ -33,9 +33,9 @@ module.exports.methods = {
                   type: 'string',
                   example: 'johndoe',
                 },
-                key: {
+                otherField: {
                   type: 'string',
-                  example: 'justaddedSSHkey',
+                  example: 'yourOtherField',
                 },
               },
             },
@@ -81,25 +81,47 @@ module.exports.methods = {
     },
   },
   put: {
-    summary: 'update a user',
+    summary: 'Your description for this put request',
     requestBody: {
       required: false,
       content: {
         'application/json': {
           schema: {
             $ref: '#/components/schemas/entity',
-            type: 'object',
-            properties: {
-              comment: 'The entire schema object can just reference an existing  ',
+          },
+        },
+      },
+    },
+    description: 'Description of the response',
+    responses: {
+      200: {
+        description: 'Some response',
+        content: {
+          'application/json': {
+            schema: {
+              $ref: '#/components/schemas/entity',
             },
           },
         },
       },
     },
-    description: 'Update a user',
+  },
+  delete: {
+    summary: 'Your description for this delete request',
+    requestBody: {
+      required: false,
+      content: {
+        'application/json': {
+          schema: {
+            $ref: '#/components/schemas/entity',
+          },
+        },
+      },
+    },
+    description: 'Description of the response',
     responses: {
       200: {
-        description: 'A JSON array of user names',
+        description: 'Some response',
         content: {
           'application/json': {
             schema: {
@@ -121,22 +143,25 @@ module.exports.swagger = {
   },
   servers: [
     {
-      url: 'http://user:6060/',
+      url: 'http://localhost:3000/',
       description: 'production and staging end point',
-    },
-    {
-      url: 'http://localhost:6060/',
-      description: 'Local development',
     },
   ],
   components: {
     schemas: {
       entity: {
-        name: 'johndoe',
-        email: 'johndoe@example.com',
-      },
-      otherSchema: {
-        comment: 'You can also reference your mongoose models as a json file using the $ref attribute and a relative path to the file',
+        type: 'object',
+        properties: {
+          name: {
+            type: 'string',
+            example: 'Johndoe',
+          },
+          email: {
+            type: 'string',
+            example: 'johndoe@gmail.com',
+          },
+
+        },
       },
     },
   },

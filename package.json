@@ -1,6 +1,6 @@
 {
   "name": "swagger-doc-gen-cli",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Dynamically generate a OpenAPI specification boilerplate that has your API endpoints added in already",
   "main": "/bin/index.js",
   "scripts": {
@@ -36,6 +36,7 @@
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-jest": "^23.13.2",
     "express": "^4.17.1",
-    "jest": "^26.0.1"
+    "jest": "^26.0.1",
+    "swagger-parser": "^9.0.1"
   }
 }

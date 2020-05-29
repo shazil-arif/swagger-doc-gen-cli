@@ -12,13 +12,11 @@ module.exports = (args) => {
   if (!pathToExpress) usage();
   if (!pathToWrite) usage();
   if (fileType === 'json' || fileType === 'yaml') {
-    console.log(pathToExpress);
-    console.log(__dirname);
-    if (!fs.existsSync(pathToExpress)) {
+    if (!fs.existsSync(`${process.cwd()}/${pathToExpress}`)) {
       console.log('Path to express app not found');
       usage();
     }
-    if (!fs.existsSync(pathToWrite)) {
+    if (!fs.existsSync(`${process.cwd()}/${pathToWrite}`)) {
       console.log('Path to output destination not found');
       usage();
     }
