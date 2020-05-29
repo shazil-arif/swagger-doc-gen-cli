@@ -4,10 +4,10 @@
 Dynamically generate a OpenAPI specification file from your express app that can be used along with the swagger UI package to create your api documentation. 
 
 ### Why use it?
-This relieves the developer from creating a spec with thousands of lines as your API may have many different endpoints. This package generates majority of the specification (generates an entry for each API endpoint along with an entry for each HTTP method for that endpoint), the only part that needs to be filled in is the details for the request and response body format for your API endpoints, the template forthat is given as well.
+This relieves the developer from creating a spec with thousands of lines as your API may have many different endpoints. This package generates majority of the specification (generates an entry for each API endpoint along with an entry for each HTTP method for that endpoint), the only part that needs to be filled in is the details for the request and response body format for your API endpoints, the template for that is given as well.
 
 <br/>
-To complete the spec beyond the generated boilerplate, visit [this](https://swagger.io/docs/specification/2-0/basic-structure/)
+To complete the spec beyond the generated boilerplate, visit https://swagger.io/docs/specification/2-0/basic-structure/
 
 ### Installation
 
