@@ -108,16 +108,6 @@ module.exports.methods = {
   },
   delete: {
     summary: 'Your description for this delete request',
-    requestBody: {
-      required: false,
-      content: {
-        'application/json': {
-          schema: {
-            $ref: '#/components/schemas/entity',
-          },
-        },
-      },
-    },
     description: 'Description of the response',
     responses: {
       200: {

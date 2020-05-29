@@ -1,5 +1,4 @@
 const app = require('express')();
-
 /**
  * sample server to test the spec generation with
  */
