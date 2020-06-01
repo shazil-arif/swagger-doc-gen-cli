@@ -7,7 +7,7 @@ https://www.npmjs.com/package/swagger-doc-gen-cli
 This is an npm package that can be used to dynamically generate a OpenAPI specification file from your express app that can be used along with the swagger UI package to create your API documentation. 
 
 ### Why use it?
-This relieves the developer from creating a spec with thousands of lines as your API may have many different endpoints. This package generates majority of the specification (generates an entry for each API endpoint along with an entry for each HTTP method for that endpoint), the only part that needs to be filled in is the details for the request and response body format for your API endpoints, the template for that is given as well.
+This relieves the developer from creating a spec with thousands of lines as your API may have many different endpoints. This package generates majority of the specification (generates an entry for each API endpoint, an entry for each HTTP method for that endpoint and adds in all the route parameters for that endpoint), the only part that needs to be filled in is the details for the request and response body format for your API endpoints, the template for that is given as well.
 
 <br/>
 To complete the spec beyond the generated boilerplate, visit https://swagger.io/docs/specification/2-0/basic-structure/
