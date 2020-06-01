@@ -19,12 +19,13 @@ const paths = listendpoint(app);
 paths.forEach((apiPath) => {
   let { path } = apiPath;
   let hasRouteParam = false;
+  let routeParams;
   if (path.includes(':')) {
     hasRouteParam = true;
     path = handleParams(path);
+    routeParams = path.match(/{([^}]+)}/g).map((res) => res.replace(/{|}/g, ''));
   }
 
-  let routeParams = path.match(/{([^}]+)}/g).map((res) => res.replace(/{|}/g, ''));
   swagger.paths[path] = {};
 
   apiPath.methods.forEach((method) => {
