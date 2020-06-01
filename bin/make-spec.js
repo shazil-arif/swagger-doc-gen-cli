@@ -41,6 +41,8 @@ paths.forEach((apiPath) => {
     }
   });
 });
+
 let out;
 fileType === 'yaml' ? out = YAML.stringify(swagger) : out = JSON.stringify(swagger, null, 4);
+
 fs.writeFile(`${process.cwd()}/${pathToWrite}/swagger.${fileType}`, out, (err) => { if (err) throw new Error('Could not create swagger spec file...exiting'); });
