@@ -1,6 +1,20 @@
-module.exports.methods = {
+/**
+ * @brief Contains an OpenAPI spec template to be written out as a JSON or YAML file
+ */
+
+module.exports.getParameters = () => ({
+  in: 'path',
+  required: true,
+  description: 'Your description here',
+  schema: {
+    type: 'string',
+    example: 'modify the above type as needed',
+  },
+});
+module.exports.methods = () => ({
   post: {
     summary: 'Summary for this endpoint',
+    parameters: [],
     requestBody: {
       required: true,
       content: {
@@ -10,7 +24,7 @@ module.exports.methods = {
             properties: {
               username: {
                 type: 'string',
-                example: 'johndoe@menlolab.com',
+                example: 'johndoe@hotmailcom',
               },
               comment: {
                 type: 'string',
@@ -47,6 +61,7 @@ module.exports.methods = {
   get: {
     summary: 'Some other endpoint',
     description: 'Optional extended description in CommonMark or HTML.',
+    parameters: [],
     responses: {
       200: {
         description: 'Your description of the endpoint',
@@ -82,6 +97,7 @@ module.exports.methods = {
   },
   put: {
     summary: 'Your description for this put request',
+    parameters: [],
     requestBody: {
       required: false,
       content: {
@@ -108,6 +124,7 @@ module.exports.methods = {
   },
   delete: {
     summary: 'Your description for this delete request',
+    parameters: [],
     description: 'Description of the response',
     responses: {
       200: {
@@ -122,7 +139,7 @@ module.exports.methods = {
       },
     },
   },
-};
+});
 
 module.exports.swagger = {
   openapi: '3.0.0',

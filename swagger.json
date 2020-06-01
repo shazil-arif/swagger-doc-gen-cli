@@ -1,0 +1,539 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Insert your title here",
+        "description": "Your description here",
+        "version": "0.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3000/",
+            "description": "production and staging end point"
+        }
+    ],
+    "components": {
+        "schemas": {
+            "entity": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "example": "Johndoe"
+                    },
+                    "email": {
+                        "type": "string",
+                        "example": "johndoe@gmail.com"
+                    }
+                }
+            }
+        }
+    },
+    "paths": {
+        "/{api}/{1}/{param}/{ok}": {
+            "get": {
+                "summary": "Some other endpoint",
+                "description": "Optional extended description in CommonMark or HTML.",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "required": true,
+                        "description": "Your description here",
+                        "schema": {
+                            "type": "string",
+                            "example": "modify the above type as needed"
+                        },
+                        "name": "api"
+                    },
+                    {
+                        "in": "path",
+                        "required": true,
+                        "description": "Your description here",
+                        "schema": {
+                            "type": "string",
+                            "example": "modify the above type as needed"
+                        },
+                        "name": "1"
+                    },
+                    {
+                        "in": "path",
+                        "required": true,
+                        "description": "Your description here",
+                        "schema": {
+                            "type": "string",
+                            "example": "modify the above type as needed"
+                        },
+                        "name": "param"
+                    },
+                    {
+                        "in": "path",
+                        "required": true,
+                        "description": "Your description here",
+                        "schema": {
+                            "type": "string",
+                            "example": "modify the above type as needed"
+                        },
+                        "name": "ok"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Your description of the endpoint",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "authorized": {
+                                            "type": "boolean"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "authorized": {
+                                            "type": "boolean"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "summary": "Your description for this put request",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "required": true,
+                        "description": "Your description here",
+                        "schema": {
+                            "type": "string",
+                            "example": "modify the above type as needed"
+                        },
+                        "name": "api"
+                    },
+                    {
+                        "in": "path",
+                        "required": true,
+                        "description": "Your description here",
+                        "schema": {
+                            "type": "string",
+                            "example": "modify the above type as needed"
+                        },
+                        "name": "1"
+                    },
+                    {
+                        "in": "path",
+                        "required": true,
+                        "description": "Your description here",
+                        "schema": {
+                            "type": "string",
+                            "example": "modify the above type as needed"
+                        },
+                        "name": "param"
+                    },
+                    {
+                        "in": "path",
+                        "required": true,
+                        "description": "Your description here",
+                        "schema": {
+                            "type": "string",
+                            "example": "modify the above type as needed"
+                        },
+                        "name": "ok"
+                    }
+                ],
+                "requestBody": {
+                    "required": false,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/entity"
+                            }
+                        }
+                    }
+                },
+                "description": "Description of the response",
+                "responses": {
+                    "200": {
+                        "description": "Some response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/entity"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Summary for this endpoint",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "required": true,
+                        "description": "Your description here",
+                        "schema": {
+                            "type": "string",
+                            "example": "modify the above type as needed"
+                        },
+                        "name": "api"
+                    },
+                    {
+                        "in": "path",
+                        "required": true,
+                        "description": "Your description here",
+                        "schema": {
+                            "type": "string",
+                            "example": "modify the above type as needed"
+                        },
+                        "name": "1"
+                    },
+                    {
+                        "in": "path",
+                        "required": true,
+                        "description": "Your description here",
+                        "schema": {
+                            "type": "string",
+                            "example": "modify the above type as needed"
+                        },
+                        "name": "param"
+                    },
+                    {
+                        "in": "path",
+                        "required": true,
+                        "description": "Your description here",
+                        "schema": {
+                            "type": "string",
+                            "example": "modify the above type as needed"
+                        },
+                        "name": "ok"
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "username": {
+                                        "type": "string",
+                                        "example": "johndoe@hotmailcom"
+                                    },
+                                    "comment": {
+                                        "type": "string",
+                                        "example": "other types include number, integer, boolean, array, object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Your description of the response body",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "username": {
+                                            "type": "string",
+                                            "example": "johndoe"
+                                        },
+                                        "otherField": {
+                                            "type": "string",
+                                            "example": "yourOtherField"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Your description for this delete request",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "required": true,
+                        "description": "Your description here",
+                        "schema": {
+                            "type": "string",
+                            "example": "modify the above type as needed"
+                        },
+                        "name": "api"
+                    },
+                    {
+                        "in": "path",
+                        "required": true,
+                        "description": "Your description here",
+                        "schema": {
+                            "type": "string",
+                            "example": "modify the above type as needed"
+                        },
+                        "name": "1"
+                    },
+                    {
+                        "in": "path",
+                        "required": true,
+                        "description": "Your description here",
+                        "schema": {
+                            "type": "string",
+                            "example": "modify the above type as needed"
+                        },
+                        "name": "param"
+                    },
+                    {
+                        "in": "path",
+                        "required": true,
+                        "description": "Your description here",
+                        "schema": {
+                            "type": "string",
+                            "example": "modify the above type as needed"
+                        },
+                        "name": "ok"
+                    }
+                ],
+                "description": "Description of the response",
+                "responses": {
+                    "200": {
+                        "description": "Some response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/entity"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/2/{ok}/{param2}": {
+            "get": {
+                "summary": "Some other endpoint",
+                "description": "Optional extended description in CommonMark or HTML.",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "required": true,
+                        "description": "Your description here",
+                        "schema": {
+                            "type": "string",
+                            "example": "modify the above type as needed"
+                        },
+                        "name": "ok"
+                    },
+                    {
+                        "in": "path",
+                        "required": true,
+                        "description": "Your description here",
+                        "schema": {
+                            "type": "string",
+                            "example": "modify the above type as needed"
+                        },
+                        "name": "param2"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Your description of the endpoint",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "authorized": {
+                                            "type": "boolean"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "authorized": {
+                                            "type": "boolean"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "summary": "Your description for this put request",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "required": true,
+                        "description": "Your description here",
+                        "schema": {
+                            "type": "string",
+                            "example": "modify the above type as needed"
+                        },
+                        "name": "ok"
+                    },
+                    {
+                        "in": "path",
+                        "required": true,
+                        "description": "Your description here",
+                        "schema": {
+                            "type": "string",
+                            "example": "modify the above type as needed"
+                        },
+                        "name": "param2"
+                    }
+                ],
+                "requestBody": {
+                    "required": false,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/entity"
+                            }
+                        }
+                    }
+                },
+                "description": "Description of the response",
+                "responses": {
+                    "200": {
+                        "description": "Some response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/entity"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Summary for this endpoint",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "required": true,
+                        "description": "Your description here",
+                        "schema": {
+                            "type": "string",
+                            "example": "modify the above type as needed"
+                        },
+                        "name": "ok"
+                    },
+                    {
+                        "in": "path",
+                        "required": true,
+                        "description": "Your description here",
+                        "schema": {
+                            "type": "string",
+                            "example": "modify the above type as needed"
+                        },
+                        "name": "param2"
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "username": {
+                                        "type": "string",
+                                        "example": "johndoe@hotmailcom"
+                                    },
+                                    "comment": {
+                                        "type": "string",
+                                        "example": "other types include number, integer, boolean, array, object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Your description of the response body",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "username": {
+                                            "type": "string",
+                                            "example": "johndoe"
+                                        },
+                                        "otherField": {
+                                            "type": "string",
+                                            "example": "yourOtherField"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Your description for this delete request",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "required": true,
+                        "description": "Your description here",
+                        "schema": {
+                            "type": "string",
+                            "example": "modify the above type as needed"
+                        },
+                        "name": "ok"
+                    },
+                    {
+                        "in": "path",
+                        "required": true,
+                        "description": "Your description here",
+                        "schema": {
+                            "type": "string",
+                            "example": "modify the above type as needed"
+                        },
+                        "name": "param2"
+                    }
+                ],
+                "description": "Description of the response",
+                "responses": {
+                    "200": {
+                        "description": "Some response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/entity"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

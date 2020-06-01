@@ -1,12 +1,20 @@
 /* eslint-disable no-console */
 const fs = require('fs-extra');
 
+/**
+ * @brief print a usage message for the CLI tool
+ */
 const usage = () => {
   console.log('Invalid inputs\n');
   console.log('USAGE:');
   console.log('make-spec <relativePathToExpressApp> <yaml> || <json> <relativePathToWriteOutputTo>');
   process.exit(0);
 };
+
+/**
+ * @brief Validate the command line arguments given to the tool
+ * @param {Array} args to validate
+ */
 module.exports = (args) => {
   const [pathToExpress, fileType, pathToWrite] = args;
   if (!pathToExpress) usage();
