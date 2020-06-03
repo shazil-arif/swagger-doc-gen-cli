@@ -26,4 +26,4 @@ From the command line: <br/>
 
 The 2nd argument specifies whether the spec is desired in YAML or JSON format. Only one must be provided
 
-You can then use the generated ```swagger.yaml``` or ```swagger.json``` along with the ![swagger-ui-express package](https://www.npmjs.com/package/swagger-ui-express) to view your API documentation
+You can then use the generated ```swagger.yaml``` or ```swagger.json``` along with the [swagger-ui-express package](https://www.npmjs.com/package/swagger-ui-express) to view your API documentation
