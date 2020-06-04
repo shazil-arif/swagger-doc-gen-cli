@@ -36,10 +36,10 @@ Sample express app
 const express = require('express');
 const app = express();
 
-app.get('/api/1', (req,res) => res.send('myapi'));
-app.post('/api/1', (req,res) => res.send('myapi'));
-app.delete('/api/1', (req,res) => res.send('myapi'));
-app.put('/api/1', (req,res) => res.send('myapi'));
+app.get('/api/1/:someParam', (req,res) => res.send('myapi'));
+app.post('/api/1/:someParam', (req,res) => res.send('myapi'));
+app.delete('/api/1/:someParam', (req,res) => res.send('myapi'));
+app.put('/api/1/:someParam', (req,res) => res.send('myapi'));
 
 app.listen(3000);
 module.exports = app;
