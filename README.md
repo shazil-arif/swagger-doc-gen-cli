@@ -86,7 +86,7 @@ As you can the tool does much of the heavy lifting and leaves very little parts 
 
 You can also paste the contents of the file [here](https://editor.swagger.io/) and get a preview. If you are using Gitlab and push the swagger file to your repository, Gitlab allows to you preview the documentation simply by opening the file (No plugins required)
 
-Open to contributions ideas for improvement!
+Open to contributions and ideas for improvement!
 
 
 ## License
