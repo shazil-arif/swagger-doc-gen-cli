@@ -1,6 +1,6 @@
 {
   "name": "swagger-doc-gen-cli",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "description": "Dynamically generate a OpenAPI specification boilerplate that has your API endpoints added in already",
   "main": "/bin/index.js",
   "scripts": {
