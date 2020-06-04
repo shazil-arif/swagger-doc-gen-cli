@@ -76,7 +76,7 @@ const swaggerDocument = require('./swagger.json');
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 ```
 
-You can find more about the package ![Here](https://www.npmjs.com/package/swagger-ui-express)
+You can find more about the package [here](https://www.npmjs.com/package/swagger-ui-express)
 
 For our example the documentation looks like
 
@@ -84,7 +84,7 @@ For our example the documentation looks like
 
 As you can the tool does much of the heavy lifting and leaves very little parts that need to be filled out
 
-You can also paste the contents of the file ![Here](https://editor.swagger.io/) and get a preview. If you are using Gitlab and push the swagger file to your repository, Gitlab allows to you preview the documentation simply by opening the file (No plugins required)
+You can also paste the contents of the file [here](https://editor.swagger.io/) and get a preview. If you are using Gitlab and push the swagger file to your repository, Gitlab allows to you preview the documentation simply by opening the file (No plugins required)
 
 Open to contributions ideas for improvement!
 
