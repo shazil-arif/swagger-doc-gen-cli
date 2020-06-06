@@ -6,172 +6,286 @@ module.exports.getParameters = () => ({
   in: 'path',
   required: true,
   description: 'Your description here',
-  schema: {
-    type: 'string',
-    example: 'modify the above type as needed',
-  },
+  type: 'string',
 });
 module.exports.methods = () => ({
   post: {
-    summary: 'Summary for this endpoint',
-    parameters: [],
-    requestBody: {
-      required: true,
-      content: {
-        'application/json': {
-          schema: {
-            type: 'object',
-            properties: {
-              username: {
-                type: 'string',
-                example: 'johndoe@hotmailcom',
-              },
-              comment: {
-                type: 'string',
-                example: 'other types include number, integer, boolean, array, object',
-              },
-            },
-          },
-        },
-      },
-    },
-    responses: {
-      200: {
-        description: 'Your description of the response body',
-        content: {
-          'application/json': {
-            schema: {
-              type: 'object',
-              properties: {
-                username: {
-                  type: 'string',
-                  example: 'johndoe',
-                },
-                otherField: {
-                  type: 'string',
-                  example: 'yourOtherField',
-                },
-              },
-            },
-          },
-        },
-      },
-    },
-  },
-  get: {
-    summary: 'Some other endpoint',
-    description: 'Optional extended description in CommonMark or HTML.',
+    tags: [
+      'pet',
+    ],
+    summary: 'Add a new pet to the store',
+    description: '',
+    consumes: [
+      'application/json',
+      'application/xml',
+    ],
+    produces: [
+      'application/xml',
+      'application/json',
+    ],
     parameters: [],
     responses: {
-      200: {
-        description: 'Your description of the endpoint',
-        content: {
-          'application/json': {
-            schema: {
-              type: 'object',
-              properties: {
-                authorized: {
-                  type: 'boolean',
-                },
-              },
-            },
-          },
-        },
-      },
-      404: {
-        description: 'Forbidden',
-        content: {
-          'application/json': {
-            schema: {
-              type: 'object',
-              properties: {
-                authorized: {
-                  type: 'boolean',
-                },
-              },
-            },
-          },
-        },
+      405: {
+        description: 'Invalid input',
       },
     },
+    security: [
+      {
+        petstore_auth: [
+          'write:pets',
+          'read:pets',
+        ],
+      },
+    ],
   },
   put: {
-    summary: 'Your description for this put request',
-    parameters: [],
-    requestBody: {
-      required: false,
-      content: {
-        'application/json': {
-          schema: {
-            $ref: '#/components/schemas/entity',
-          },
-        },
+    tags: [
+      'pet',
+    ],
+    summary: 'Update an existing pet',
+    description: '',
+    consumes: [
+      'application/json',
+      'application/xml',
+    ],
+    produces: [
+      'application/xml',
+      'application/json',
+    ],
+    parameters: [
+    ],
+    responses: {
+      400: {
+        description: 'Invalid ID supplied',
+      },
+      404: {
+        description: 'Pet not found',
+      },
+      405: {
+        description: 'Validation exception',
       },
     },
-    description: 'Description of the response',
+    security: [
+      {
+        petstore_auth: [
+          'write:pets',
+          'read:pets',
+        ],
+      },
+    ],
+  },
+  get: {
+    tags: [
+      'pet',
+    ],
+    summary: 'Find pet by ID',
+    description: 'Returns a single pet',
+    produces: [
+      'application/xml',
+      'application/json',
+    ],
+    parameters: [
+    ],
     responses: {
       200: {
-        description: 'Some response',
-        content: {
-          'application/json': {
-            schema: {
-              $ref: '#/components/schemas/entity',
-            },
-          },
+        description: 'successful operation',
+        schema: {
+          $ref: '#/definitions/Pet',
         },
       },
+      400: {
+        description: 'Invalid ID supplied',
+      },
+      404: {
+        description: 'Pet not found',
+      },
     },
+    security: [
+      {
+        api_key: [],
+      },
+    ],
   },
   delete: {
-    summary: 'Your description for this delete request',
+    tags: [
+      'pet',
+    ],
+    summary: 'Deletes a pet',
+    description: '',
+    produces: [
+      'application/xml',
+      'application/json',
+    ],
     parameters: [],
-    description: 'Description of the response',
     responses: {
-      200: {
-        description: 'Some response',
-        content: {
-          'application/json': {
-            schema: {
-              $ref: '#/components/schemas/entity',
-            },
-          },
-        },
+      400: {
+        description: 'Invalid ID supplied',
+      },
+      404: {
+        description: 'Pet not found',
       },
     },
+    security: [
+      {
+        petstore_auth: [
+          'write:pets',
+          'read:pets',
+        ],
+      },
+    ],
   },
 });
 
 module.exports.swagger = {
-  openapi: '3.0.0',
+  swagger: '2.0',
   info: {
-    title: 'Insert your title here',
-    description: 'Your description here',
-    version: '0.0.0',
+    description: 'This is a sample server Petstore server.  You can find out more about     Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).      For this sample, you can use the api key `special-key` to test the authorization     filters.',
+    version: '1.0.0',
+    title: 'Swagger Petstore',
+    termsOfService: 'http://swagger.io/terms/',
+    contact: {
+      email: 'apiteam@swagger.io',
+    },
+    license: {
+      name: 'Apache 2.0',
+      url: 'http://www.apache.org/licenses/LICENSE-2.0.html',
+    },
   },
-  servers: [
+  host: 'petstore.swagger.io',
+  basePath: '/v2',
+  tags: [
     {
-      url: 'http://localhost:3000/',
-      description: 'production and staging end point',
+      name: 'pet',
+      description: 'Everything about your Pets',
+      externalDocs: {
+        description: 'Find out more',
+        url: 'http://swagger.io',
+      },
     },
   ],
-  components: {
-    schemas: {
-      entity: {
-        type: 'object',
-        properties: {
-          name: {
-            type: 'string',
-            example: 'Johndoe',
+  schemes: [
+    'https',
+    'http',
+  ],
+  paths: {
+  },
+  securityDefinitions: {
+    petstore_auth: {
+      type: 'oauth2',
+      authorizationUrl: 'http://petstore.swagger.io/oauth/dialog',
+      flow: 'implicit',
+      scopes: {
+        'write:pets': 'modify pets in your account',
+        'read:pets': 'read your pets',
+      },
+    },
+    api_key: {
+      type: 'apiKey',
+      name: 'api_key',
+      in: 'header',
+    },
+  },
+  definitions: {
+    Category: {
+      type: 'object',
+      properties: {
+        id: {
+          type: 'integer',
+          format: 'int64',
+        },
+        name: {
+          type: 'string',
+        },
+      },
+      xml: {
+        name: 'Category',
+      },
+    },
+    Tag: {
+      type: 'object',
+      properties: {
+        id: {
+          type: 'integer',
+          format: 'int64',
+        },
+        name: {
+          type: 'string',
+        },
+      },
+      xml: {
+        name: 'Tag',
+      },
+    },
+    Pet: {
+      type: 'object',
+      required: [
+        'name',
+        'photoUrls',
+      ],
+      properties: {
+        id: {
+          type: 'integer',
+          format: 'int64',
+        },
+        category: {
+          $ref: '#/definitions/Category',
+        },
+        name: {
+          type: 'string',
+          example: 'doggie',
+        },
+        photoUrls: {
+          type: 'array',
+          xml: {
+            name: 'photoUrl',
+            wrapped: true,
           },
-          email: {
+          items: {
             type: 'string',
-            example: 'johndoe@gmail.com',
           },
-
+        },
+        tags: {
+          type: 'array',
+          xml: {
+            name: 'tag',
+            wrapped: true,
+          },
+          items: {
+            $ref: '#/definitions/Tag',
+          },
+        },
+        status: {
+          type: 'string',
+          description: 'pet status in the store',
+          enum: [
+            'available',
+            'pending',
+            'sold',
+          ],
+        },
+      },
+      xml: {
+        name: 'Pet',
+      },
+    },
+    ApiResponse: {
+      type: 'object',
+      properties: {
+        code: {
+          type: 'integer',
+          format: 'int32',
+        },
+        type: {
+          type: 'string',
+        },
+        message: {
+          type: 'string',
         },
       },
     },
   },
-  paths: {
+  externalDocs: {
+    description: 'Find out more about Swagger',
+    url: 'http://swagger.io',
   },
 };
