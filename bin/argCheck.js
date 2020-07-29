@@ -1,5 +1,8 @@
+/* eslint-disable import/no-dynamic-require */
+/* eslint-disable global-require */
 /* eslint-disable no-console */
 const fs = require('fs-extra');
+const listendpoint = require('express-list-endpoints');
 
 /**
  * @brief print a usage message for the CLI tool
@@ -33,6 +36,18 @@ module.exports = (args) => {
     usage();
   }
 
+  const app = require(`${process.cwd()}/${pathToExpress}`);
+  let paths;
+  if (Object.keys(app).length === 0) {
+    console.log('Given Express file does not export anything. Required for generating spec');
+    process.exit();
+  }
+  try {
+    paths = listendpoint(app);
+  } catch (ex) {
+    console.log('No routes detected in express app or app not exported properly in express file');
+    process.exit();
+  }
 
-  return { pathToExpress, fileType, pathToWrite };
+  return { paths, fileType, pathToWrite };
 };
